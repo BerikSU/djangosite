@@ -10,8 +10,8 @@ body{
   text-transform: uppercase;
 }
 .top-bl{
-  background: #bebebe;
-  padding: 15px;
+ background: #00FFFF;
+ padding: 30px;
 }
 .top-bl .cart{
   float: right;
