@@ -1,1 +1,1 @@
-web: gunicorn localibrary.wsgi --log-file -
+web: gunicorn myshop.wsgi --log-file -
