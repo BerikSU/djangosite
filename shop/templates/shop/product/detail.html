@@ -4,7 +4,7 @@
   {{ product.name }}
 {% endblock %}
 {% block content %}
-  <div class="product-detail">
+   <div class="product-detail">
     <div class="col-sm-4">
       <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="img-responsive">
     </div>

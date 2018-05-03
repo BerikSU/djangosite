@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,16 +10,61 @@
 <body>
   <section id="header">
     <div class="top container">
-      Мой Онлайн-Магазин
-    </div>
-    <div class="top-bl">
-      <div class="container">
-        <div class="cart">Корзина</div>
+      <div id="head-site">
+    <a href="#"><img src="{%static "img/log.jpg" %}"/></a>
+   </div>
+ </div>
+      <div class="top-bl">
+         <div class="container">
+        <div class="cart">
+          <b style="color:white;">Себет</b>
+          </div>
       </div>
     </div>
+    <ul>
+   {% if user.is_authenticated %}
+     <i>User: {{ user.get_username }}</i>
+     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+   {% else %}
+     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+   {% endif %} 
+  </ul>
   </section>
   <section id="content row" class="container">
     {% block content %}{% endblock %}
   </section>
+ <div class="top-bl">
+   <div class="container">
+      <i style="color:white;">You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</i>
+<ul>
+     <b style="color:white;">Бүгін:{% if weekday == 0 %} Дүйсенбі{% endif %}
+  {% if weekday == 1 %} Сейсенбі{% endif %}
+  {% if weekday == 2 %} Сәрсенбі{% endif %}
+  {% if weekday == 3 %} Бейсенбі{% endif %}
+  {% if weekday == 4 %} Жұма{% endif %}
+  {% if weekday == 5 %} Сенбі{% endif %}
+  {% if weekday == 6 %} жексенбі{% endif %}</b>
+  <p style="color:white;">Күні:
+    {% if day < 10 %}0{{ day }}{% else %}{{ day }}{% endif %}.{% if month < 10 %}0{{ month }}{% else %}{{ month }}{% endif %}.{{ year }}</p>
+    <p>
+    </ul>
+      <div id="main" class="product_list col-sm-9" style="color:white;">
+        © 2018 shop.kz. Aлматы қаласы.  <b href="https://vk.com/aaskarovna97" style="color:white;">Berik Bakytzhan</b>
+      </p>
+      <b style="color:white;">Телефон: 87476052619</b>
+    </div>
+   </div>
+    <div class="top-bl">
+    <div class="container">
+          <li align="right"><a href="https://vk.com/aaskarovna97" class="normaltip" title="Vk"><img src={% static "img/vk32.png" alt="">%} </a>
+          <a href="https://www.instagram.com/_askarovna.a/" class="normaltip" title="Instagram"><img src={% static "img/b.png" alt="">%} </a>
+          <a href="#" class="normaltip" title="Facebook"><img src={% static "img/f.png" alt="">%} </a></li>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
+
+
+
